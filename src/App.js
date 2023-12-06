@@ -3,6 +3,7 @@ import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 import { nanoid } from "nanoid";
+import {FaGithub} from 'react-icons/fa'
 
 function usePrevious(value) {
   const ref = useRef();
@@ -120,7 +121,10 @@ function App(props) {
         aria-labelledby="list-heading">
         {taskList}
       </ul>
-    </div>
+      <div class="footer">
+		    <a href='https://github.com/hello-sora' target='_blank' rel="noopener noreferrer"><FaGithub className='github'/></a>
+	    </div>
+    </div>    
   );
 }
 

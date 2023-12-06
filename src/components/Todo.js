@@ -49,11 +49,11 @@ function Todo(props) {
                 className="btn todo-cancel"
                 onClick={() => setEditing(false)}>
                 Cancel
-                <span className="visually-hidden">renaming {props.name}</span>
+                <span className="visually-hidden"> renaming {props.name}</span>
             </button>
             <button type="submit" className="btn btn__primary todo-edit">
               Save
-              <span className="visually-hidden">new name for {props.name}</span>
+              <span className="visually-hidden"> new name for {props.name}</span>
             </button>
           </div>
         </form>
