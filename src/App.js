@@ -35,11 +35,13 @@ function App(props) {
       return task;
     });
     setTasks(updatedTasks);
+    localStorage.setItem("localTasks", JSON.stringify(updatedTasks));
   }
 
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
     setTasks(remainingTasks);
+    localStorage.setItem("localTasks", JSON.stringify(remainingTasks));
   }
 
   function editTask(id, newName) {
@@ -52,11 +54,13 @@ function App(props) {
       return task;
     });
     setTasks(editedTaskList);
+    localStorage.setItem("localTasks", JSON.stringify(editedTaskList));
   }
 
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
+    localStorage.setItem("localTasks", JSON.stringify([...tasks, newTask]));
   }
 
   const taskList = tasks
@@ -92,6 +96,13 @@ function App(props) {
       listHeadingRef.current.focus();
     }
   }, [tasks.length, prevTaskLength]);
+
+  useEffect(()=>{
+    if(localStorage.getItem("localTasks")){
+        const storedList = JSON.parse(localStorage.getItem("localTasks"));
+        setTasks(storedList);
+    }
+  },[])
 
   return (
     <div className="todoapp stack-large">
