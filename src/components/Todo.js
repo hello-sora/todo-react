@@ -3,7 +3,6 @@ import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
   MdDeleteOutline,
-  MdOutlineColorLens,
 } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 
@@ -39,13 +38,14 @@ function Todo(props) {
         <form className="stack-small" onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="todo-label" htmlFor={props.id}>
-              New name for {props.name} 
+              New name for {props.name}    
             </label>
             <input 
                 id={props.id} 
                 className="todo-text" 
                 type="text" 
                 value={newName}
+                placeholder="New name"
                 onChange={handleChange}
                 ref={editFieldRef}
             />
@@ -69,28 +69,16 @@ function Todo(props) {
     );
       const viewTemplate = (
         <div className={`task ${props.completed && "task-done"}`}>
-          {/* <input
-            id={props.id}
-            type="checkbox"
-            defaultChecked={props.completed}
-            onChange={() => props.toggleTaskCompleted(props.id)}
-          /> */}
           <button onClick={() => props.toggleTaskCompleted(props.id)}>
             {props.completed ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
           </button>
-          <label className="todo-label" htmlFor={props.id}>
-            {props.name}
-          </label>
+            <p>{props.name}</p>
           <button 
-              type="button" 
-              className="btn" 
               onClick={() => setEditing(true)}
               ref={editButtonRef}>
               <FiEdit />
           </button>
           <button
-            type="button"
-            className="btn btn__danger"
             onClick={() => props.deleteTask(props.id)}>
             <MdDeleteOutline />
           </button>

@@ -118,11 +118,6 @@ button:hover {
   text-align: left;
   transition: all 0.5s ease;
 }
-.task p {
-  font-size: 1rem;
-  text-transform: capitalize;
-  flex: 1;
-}
 .task button {
   background-color: transparent;
   color: var(--alt-font-color);
@@ -199,4 +194,85 @@ button:hover {
 
 ul {
   list-style-type: none;
+}
+
+.btn {
+  padding: 0.8rem 1rem 0.7rem;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.btn.toggle-btn {
+  border-width: 1px;
+  border-color: #d3d3d3;
+}
+.btn.toggle-btn[aria-pressed="true"] {
+  text-decoration: underline;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-group > * {
+  flex: 1 1 49%;
+}
+.btn-group > * + * {
+  margin-left: 0.8rem;
+}
+.label-wrapper {
+  margin: 0;
+  flex: 0 0 100%;
+  text-align: center;
+}
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+[class*="stack"] > * {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.stack-small > * + * {
+  margin-top: 1.25rem;
+}
+.stack-large > * + * {
+  margin-top: 2.5rem;
+}
+@media screen and (min-width: 550px) {
+  .stack-small > * + * {
+    margin-top: 1.4rem;
+  }
+  .stack-large > * + * {
+    margin-top: 2.8rem;
+  }
+}
+.stack-exception {
+  margin-top: 1.2rem;
+}
+
+.label__lg {
+  line-height: 1.01567;
+  font-weight: 300;
+  padding: 0.8rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+.input__lg {
+  padding: 1rem;
+  border: 2px solid #000;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+.todo-text {
+  width: 40%;
+  min-height: 1.5rem;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #565656;
+  margin-left: 10px;
+  border-radius: 20px;
 }

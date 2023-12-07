@@ -10,7 +10,6 @@ const AppContext = React.createContext(null);
 const AppProvider = ({ children }) => {
   const inputRef = useRef(null);
   const [tasks, setTasks] = useState(getTasks());
-  const [alert, setAlert] = useState({ show: false, msg: "" });
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
   const [name, setName] = useState("");
@@ -21,16 +20,6 @@ const AppProvider = ({ children }) => {
 
   const removeTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
-    showAlert(true, "Task Removed.");
-  };
-
-  const toggleDone = (id) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
-    showAlert(true, "Task State Changed.");
   };
 
   const editTask = (id) => {
@@ -39,10 +28,6 @@ const AppProvider = ({ children }) => {
     setEditId(id);
     setName(name);
     inputRef.current.focus();
-  };
-
-  const showAlert = (show, msg) => {
-    setAlert({ show, msg });
   };
 
   const showColors = (e, id) => {
@@ -57,10 +42,7 @@ const AppProvider = ({ children }) => {
         tasks,
         setTasks,
         removeTask,
-        toggleDone,
         refContainer,
-        alert,
-        showAlert,
         isEditing,
         setIsEditing,
         editId,
