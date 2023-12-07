@@ -26,6 +26,7 @@ function Form(props) {
             className="input input__lg"
             name="text"
             autoComplete="off"
+            placeholder="New Task"
             value={name}
             onChange={handleChange}
           />

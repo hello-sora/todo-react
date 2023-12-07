@@ -1,4 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import {
+  MdCheckBoxOutlineBlank,
+  MdCheckBox,
+  MdDeleteOutline,
+  MdOutlineColorLens,
+} from "react-icons/md";
+import { FiEdit } from "react-icons/fi";
 
 function usePrevious(value) {
     const ref = useRef();
@@ -32,7 +39,7 @@ function Todo(props) {
         <form className="stack-small" onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="todo-label" htmlFor={props.id}>
-              New name for {props.name}
+              New name for {props.name} 
             </label>
             <input 
                 id={props.id} 
@@ -51,7 +58,9 @@ function Todo(props) {
                 Cancel
                 <span className="visually-hidden"> renaming {props.name}</span>
             </button>
-            <button type="submit" className="btn btn__primary todo-edit">
+            <button 
+              type="submit" 
+              className="btn btn__primary todo-edit">
               Save
               <span className="visually-hidden"> new name for {props.name}</span>
             </button>
@@ -59,33 +68,32 @@ function Todo(props) {
         </form>
     );
       const viewTemplate = (
-        <div className="stack-small">
-          <div className="c-cb">
-            <input
-              id={props.id}
-              type="checkbox"
-              defaultChecked={props.completed}
-              onChange={() => props.toggleTaskCompleted(props.id)}
-            />
-            <label className="todo-label" htmlFor={props.id}>
-              {props.name}
-            </label>
-          </div>
-          <div className="btn-group">
-            <button 
-                type="button" 
-                className="btn" 
-                onClick={() => setEditing(true)}
-                ref={editButtonRef}>
-                Edit <span className="visually-hidden">{props.name}</span>
-            </button>
-            <button
-              type="button"
-              className="btn btn__danger"
-              onClick={() => props.deleteTask(props.id)}>
-              Delete <span className="visually-hidden">{props.name}</span>
-            </button>
-          </div>
+        <div className={`task ${props.completed && "task-done"}`}>
+          {/* <input
+            id={props.id}
+            type="checkbox"
+            defaultChecked={props.completed}
+            onChange={() => props.toggleTaskCompleted(props.id)}
+          /> */}
+          <button onClick={() => props.toggleTaskCompleted(props.id)}>
+            {props.completed ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+          </button>
+          <label className="todo-label" htmlFor={props.id}>
+            {props.name}
+          </label>
+          <button 
+              type="button" 
+              className="btn" 
+              onClick={() => setEditing(true)}
+              ref={editButtonRef}>
+              <FiEdit />
+          </button>
+          <button
+            type="button"
+            className="btn btn__danger"
+            onClick={() => props.deleteTask(props.id)}>
+            <MdDeleteOutline />
+          </button>
         </div>
     );
 

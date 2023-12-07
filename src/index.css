@@ -5,24 +5,22 @@
 	--alt-bg-color: #0000004d;
 	--font-color: #ffffff;
 	--alt-font-color: #222222;
-	--primary-color: #607d8b;
+	--primary-color: #176b53;
 	--secondary-color: #93B5C6;
 }
 * {
-  margin: center;
-  padding: center;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 body {
-  width: 100%;
-  max-width: 70rem;
-  margin: 0 auto;
+  min-height: 97vh;
   background: var(--bg-color);
   color: var(--font-color);
   font-family: "Nunito", sans-serif;
   padding: 80px 0;
   position: relative;
-  font-size: 130%;
+  font-size: 100%;
   transition: all 0.3s linear;
 }
 .container {
@@ -30,7 +28,7 @@ body {
   max-width: 900px;
   padding: 30px;
   margin: 0 auto;
-    background: var(--alt-bg-color);
+  background: var(--alt-bg-color);
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 0 20px 0px #00000045;
@@ -67,7 +65,7 @@ button {
   cursor: pointer;
   background-color: var(--primary-color);
   padding: 10px 30px;
-  border-radius: 100px;
+  border-radius: 10px;
   border: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -152,6 +150,9 @@ button:hover {
   text-decoration: line-through;
   font-style: italic;
 }
+.no-tasks {
+  color: var(--font-color);
+}
 .color-container {
   position: absolute;
   width: 100px;
@@ -176,7 +177,7 @@ button:hover {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #00b3b3;
+  background-color: #176b53;
   outline: 0px inset #7fffd4;
   border-radius: 10px;
   height: 50px;
@@ -185,13 +186,17 @@ button:hover {
   pointer-events: none;
 }
 .footer {
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
   text-align: center;
   margin: 10px auto;
 }
 .github {
 	font-size: 2rem;
-	color: darkcyan;
+	color: #176b53;
+}
+
+ul {
+  list-style-type: none;
 }

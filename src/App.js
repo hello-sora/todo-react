@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import {FaGithub} from 'react-icons/fa'
+import { v4 as uuid } from "uuid";
+import Colors from "./Colors";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -25,6 +27,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
+  const [isColorsOpen, setIsColorsOpen] = useState(false);
 
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
@@ -59,9 +62,10 @@ function App(props) {
   }
 
   function addTask(name) {
-    const newTask = { id: `todo-${nanoid()}`, name, completed: false };
+    const newTask = { id: uuid().slice(0, 8), name, completed: false, color: "#009688", };
     setTasks([...tasks, newTask]);
     localStorage.setItem("localTasks", JSON.stringify([...tasks, newTask]));
+
   }
 
   const taskList = tasks
@@ -105,8 +109,15 @@ function App(props) {
     }
   },[])
 
+  const hideColorsContainer = (e) => {
+    //   body.
+    if (e.target.classList.contains("btn-colors")) return;
+    setIsColorsOpen(false);
+  };
+
   return (
-    <div className="todoapp stack-large">
+    <div className='container' onClick={hideColorsContainer}>
+      {isColorsOpen && <Colors />}
       <h1>To Do!</h1>
       <Form addTask={addTask}/>
       <div className="filters btn-group stack-exception">
