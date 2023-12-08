@@ -4,7 +4,7 @@
 	--bg-color: rgb(171, 229, 169);
 	--alt-bg-color: #0000004d;
 	--font-color: #ffffff;
-	--alt-font-color: #222222;
+	--alt-font-color: #d5e169e6;
 	--primary-color: #176b53;
 	--secondary-color: #93B5C6;
 }
@@ -18,13 +18,13 @@ body {
   background: var(--bg-color);
   color: var(--font-color);
   font-family: "Nunito", sans-serif;
-  padding: 80px 0;
+  padding: 100px 0;
   position: relative;
   font-size: 100%;
   transition: all 0.3s linear;
 }
 .container {
-  width: 80%;
+  width: 100%;
   max-width: 900px;
   padding: 30px;
   margin: 0 auto;
@@ -32,25 +32,6 @@ body {
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 0 20px 0px #00000045;
-}
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-    width: 90%;
-  }
-}
-.container .head {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 70% 29%;
-  gap: 1%;
-  margin-bottom: 50px;
-}
-@media (max-width: 768px) {
-  .container .head {
-    grid-template-columns: 1fr;
-    gap: 5px;
-  }
 }
 .head input {
   padding: 13px 20px;
@@ -75,22 +56,6 @@ button {
 }
 button:hover {
   opacity: 0.7;
-}
-.filter {
-  margin: 0 auto 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-@media (max-width: 576px) {
-  .filter {
-    flex-direction: column;
-  }
-}
-.filter button.active {
-  background-color: var(--secondary-color);
-  color: #333;
 }
 .tasks-wrapper {
   list-style: none;
@@ -138,30 +103,12 @@ button:hover {
   opacity: 0.85;
   border-radius: 10px;
 }
-.tasks-wrapper .task-done {
+.task-done {
   opacity: 0.5;
 }
-.tasks-wrapper .task-done p {
+.task-done p {
   text-decoration: line-through;
   font-style: italic;
-}
-.no-tasks {
-  color: var(--font-color);
-}
-.color-container {
-  position: absolute;
-  width: 100px;
-  height: 80px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: #eee;
-  padding: 3px;
-  gap: 3px;
-  border-radius: 10px;
-  z-index: 3;
-}
-.color-container > span {
-  border-radius: 5px;
 }
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -181,11 +128,11 @@ button:hover {
   pointer-events: none;
 }
 .footer {
-  width: 100%;
+  width: 42%;
   position: absolute;
   bottom: 0;
   text-align: center;
-  margin: 10px auto;
+  margin: auto auto;
 }
 .github {
 	font-size: 2rem;
@@ -206,7 +153,10 @@ ul {
   border-color: #d3d3d3;
 }
 .btn.toggle-btn[aria-pressed="true"] {
-  text-decoration: underline;
+  color: var(--primary-color);
+  background-color: var(--alt-font-color);
+  opacity: 0.85;
+  border-radius: 10px;
 }
 .btn-group {
   display: flex;

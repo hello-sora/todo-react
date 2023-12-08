@@ -79,7 +79,8 @@ function Todo(props) {
               <FiEdit />
           </button>
           <button
-            onClick={() => props.deleteTask(props.id)}>
+            onClick={() => props.deleteTask(props.id)}
+            style={{ marginLeft: "auto" }}>
             <MdDeleteOutline />
           </button>
         </div>

@@ -5,7 +5,6 @@ import Todo from "./components/Todo";
 // import { nanoid } from "nanoid";
 import {FaGithub} from 'react-icons/fa'
 import { v4 as uuid } from "uuid";
-import Colors from "./Colors";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -27,7 +26,6 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
-  const [isColorsOpen, setIsColorsOpen] = useState(false);
 
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
@@ -92,7 +90,8 @@ function App(props) {
   ));
 
   const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
-  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+  const headingText = `${taskList.length} ${tasksNoun}`;
+  
   const listHeadingRef = useRef(null);
   const prevTaskLength = usePrevious(tasks.length);
 
@@ -109,15 +108,8 @@ function App(props) {
     }
   },[])
 
-  const hideColorsContainer = (e) => {
-    //   body.
-    if (e.target.classList.contains("btn-colors")) return;
-    setIsColorsOpen(false);
-  };
-
   return (
-    <div className='container' onClick={hideColorsContainer}>
-      {isColorsOpen && <Colors />}
+    <div className='container'>
       <h1>To Do!</h1>
       <Form addTask={addTask}/>
       <div className="filters btn-group stack-exception">
