@@ -128,11 +128,11 @@ button:hover {
   pointer-events: none;
 }
 .footer {
-  width: 50%;
-  position: absolute;
+  left: 50%;
+  position: fixed;
   bottom: 0;
   text-align: center;
-  margin: auto auto;
+  margin: auto 0;
 }
 .github {
 	font-size: 2rem;
