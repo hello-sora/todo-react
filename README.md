@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# React To Do List App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It's a simple, minimalistic to do list app.
+
+## Demo
+Hosted on Netlify: https://soras-todo-list.netlify.app/
+
+## Features
+- Add a task
+- Edit task
+- Delete task
+- Tasks saved locally
+- Mobile friendly
 
 ## Available Scripts
 
